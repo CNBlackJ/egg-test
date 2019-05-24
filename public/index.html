@@ -7,10 +7,14 @@
   <title>Document</title>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
-    axios.get('http://127.0.0.1:7001/', {
+    axios({
+      url: 'http://127.0.0.1:7001/',
+      method: 'get',
       withCredentials:true,
+      xsrfHeaderName: 'x-csrf-token',
       headers: {
         'Access-Control-Allow-Origin': '*',
+        'Content-Type': "application/json"
       }
     }).then(resp => console.log(resp)).catch(e => console.log(e))
   </script>
